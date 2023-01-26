@@ -25,3 +25,8 @@ def post(request):
 
 def getlist(request):
     return render(request, 'list.html')
+
+
+def display(request):
+    obj = Form.objects.all()
+    return render(request, 'sell.html', locals())
