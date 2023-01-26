@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'buysell',
     'django_tables2',
+    'django_jenkins',
 ]
 
 MIDDLEWARE = [
