@@ -67,6 +67,7 @@ def test_fertilizer_prediction():
 def test_live_mandi():
     browser.get("http://127.0.0.1:8000/agricare/home/")
     browser.find_element(By.XPATH, "/html/body/header/a/input").click()
+    browser.find_element(By.TAG_NAME, "img").click()
     print("Live Mandi Prices Functionality Testing Successful\n")
 
     
