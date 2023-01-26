@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'agri',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'Rishabh@2314'
+        'PASSWORD': '17Mar2001'
     }
 }
 
