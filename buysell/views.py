@@ -30,3 +30,23 @@ def getlist(request):
 def display(request):
     obj = Form.objects.all()
     return render(request, 'sell.html', locals())
+
+def get_recommendation(request):
+    return render(request, 'recommend.html')
+
+def get_crop_result(request):
+    cls = joblib.load('final_model.sav')
+
+    lis = []
+    lis.append(request.POST.get('n'))
+    lis.append(request.POST.get('p'))
+    lis.append(request.POST.get('k'))
+    lis.append(request.POST.get('temp'))
+    lis.append(request.POST.get('hum'))
+    lis.append(request.POST.get('ph'))
+    lis.append(request.POST.get('rain'))
+
+    ans = cls.predict([lis])
+    s = ""
+    s = s.join(ans)
+    return render(request, 'crop_result.html', {'ans': s})
