@@ -11,4 +11,5 @@ urlpatterns = [
     path('home/recommend/result', views.get_crop_result, name='result'),
     path('home/predict', views.get_prediction),
     path('home/predict/answer', views.get_fertilizer_result, name='answer'),
+    path('home/mandi', views.live, name="mandi")
 ]

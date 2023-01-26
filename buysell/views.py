@@ -72,3 +72,18 @@ def get_fertilizer_result(request):
     s = ""
     s = s.join(ans)
     return render(request, 'fertilizer_result.html', {'ans': s})
+
+def live(request):
+    main_url = "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset="
+    end_url = "&limit=10"
+    data = []
+    for offset in range(0, 270, 10):
+        url = main_url + str(offset) + end_url
+        response = requests.get(url).json()
+        data += response["records"]
+
+    p = Paginator(data, 10)
+    page = request.GET.get('page')
+    record = p.get_page(page)
+
+    return render(request, 'mandi_live.html', {'response': record})
